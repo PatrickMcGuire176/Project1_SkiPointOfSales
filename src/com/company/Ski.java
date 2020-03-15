@@ -9,8 +9,8 @@ class Ski extends Item {
 
     public enum Manufacturer {
         ARMADA("Armada"),
-        Faction("Faction"),
-        Rossignol("Rossignol");
+        FACTION("Faction"),
+        ROSSIGNOL("Rossignol");
         public String manufacturer;
 
         private Manufacturer(String manufacturer) {
@@ -32,9 +32,7 @@ class Ski extends Item {
         private int waistWidth;
         private int tailWidth;
 
-
         public SkiBuilder() {
-
         }
 
         public SkiBuilder size(int val) {
@@ -58,12 +56,4 @@ class Ski extends Item {
         }
     }
 
-    @Override
-    void setPrice(BigDecimal price) {
-    }
-
-    @Override
-    void setManufacturer(BigDecimal price) {
-
-    }
 }

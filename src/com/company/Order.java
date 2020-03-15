@@ -1,33 +1,25 @@
 package com.company;
+import java.util.ArrayList;
+import java.util.List;
 
-import java.math.BigDecimal;
-import java.util.HashMap;
-import java.util.Map;
-
-//Make static factory method here
 class Order implements Sale {
-
     Customer customer;
-    Item item;
+    List<Item> orderItems = new ArrayList<>();
+    int total;
 
-    //Store purchase order
-    private Map<Item<? extends Item>, BigDecimal> purchaseOrder = new HashMap<>();
-
-    public void purchaseOrder(Map<Item<? extends Item>, BigDecimal> purchaseOrder) {
-        this.purchaseOrder = purchaseOrder;
-        /*
-        for(Map.Entry<Item<? extends Item>, BigDecimal> entry : purchaseOrder.entrySet()){
-            purchaseOrder();
-        }
-        */
+    public Order(Customer customer, Item item){
+        this.customer = customer;
+        this.orderItems.add(item);
     }
 
-    public Order(Customer customer, Item<? extends Item> item){
-        this.customer = customer;
-        this.item = item;
+    public void addOrderItem(Item item){
+        this.orderItems.add(item);
     }
 
     @Override
-    public void performSale(Customer customer, Item<? extends Item> item) {
+    public void performSale(Order order) {
+        for (Item orderItem : order.orderItems){
+            total += orderItem.price.intValue();
+        }
     }
 }
