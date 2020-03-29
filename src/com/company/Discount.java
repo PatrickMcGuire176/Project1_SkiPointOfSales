@@ -8,7 +8,7 @@ public class Discount {
     public void createDiscount() {
     }
 
-    public BigDecimal checkForDiscount(int itemId) {
+    public BigDecimal getDiscount(int itemId) {
         DatabaseManager<BigDecimal> databaseManager = new DatabaseManager<>();
         StringBuilder stringBuilder = new StringBuilder("select top 1 discount.price")
                 .append(System.getProperty("line.separator"))

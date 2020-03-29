@@ -15,7 +15,7 @@ class Order implements Sale {
     }
 
     public void addOrderItem(Item item){
-        BigDecimal bigDecimal = discount.checkForDiscount(0);
+        BigDecimal bigDecimal = discount.getDiscount(0);
         System.out.println(bigDecimal);
         this.orderItems.add(item);
     }
