@@ -1,10 +1,11 @@
 package com.company;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
 class Order implements Sale {
     Customer customer;
-    Discount discount;
+    Discount discount = new Discount();
     List<Item> orderItems = new ArrayList<>();
     int total;
 
@@ -14,7 +15,8 @@ class Order implements Sale {
     }
 
     public void addOrderItem(Item item){
-        //discount.checkForDiscount(1);
+        BigDecimal bigDecimal = discount.checkForDiscount(0);
+        System.out.println(bigDecimal);
         this.orderItems.add(item);
     }
 
